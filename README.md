@@ -159,7 +159,7 @@ This is a complete front-end application for managing internal meeting room book
 
 ```bash
 # Clone the repository
-git clone https://github.com/SANDRICKSON/techzy-meeting-room-booking.git.git
+git clone https://github.com/SANDRICKSON/techzy-meeting-room-booking.git
 cd meeting-room-booking
 
 # Install dependencies
@@ -382,7 +382,7 @@ const {
 
 ### Deployed on Vercel
 
-**Production URL:** [https://techzy-meeting-room-booking-809nbo7ks-sandroqatamadze634-6724.vercel.app/](https://techzy-meeting-room-booking-809nbo7ks-sandroqatamadze634-6724.vercel.app/)
+**Production URL:** [https://techzy-meeting-room-booking.vercel.app/](https://techzy-meeting-room-booking.vercel.app/)
 
 ### Deploy Your Own
 
@@ -470,16 +470,16 @@ This project is licensed under the MIT License.
 
 ## 📞 Contact
 
-- **Author:** [Your Name]
-- **Email:** [your.email@example.com]
-- **GitHub:** [@your-username](https://github.com/your-username)
-- **LinkedIn:** [Your Profile](https://linkedin.com/in/your-profile)
+- **Author:** [Sandro Katamadze]
+- **Email:** [sandroqatamadze79@gmail.com]
+- **GitHub:** [@SANDRICKSON](https://github.com/SANDRICKSON)
+- **LinkedIn:** [Sandro Katamadze](https://www.linkedin.com/in/sandro-Katamadze-6b1a9433b)
 
 ---
 
 ## 🔗 Links
 
-- **Live Demo:** [https://techzy-meeting-room-booking-809nbo7ks-sandroqatamadze634-6724.vercel.app/](https://techzy-meeting-room-booking-809nbo7ks-sandroqatamadze634-6724.vercel.app/)
+- **Live Demo:** [https://techzy-meeting-room-booking.vercel.app/](https://techzy-meeting-room-booking.vercel.app/)
 - **Repository:** [https://github.com/SANDRICKSON/techzy-meeting-room-booking.git](https://github.com/SANDRICKSON/techzy-meeting-room-booking.git)
 
 ---
