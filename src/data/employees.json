@@ -1,0 +1,122 @@
+[
+  {
+    "id": "emp-1",
+    "name": "John Doe",
+    "email": "john.doe@company.com",
+    "department": "Engineering",
+    "title": "Senior Software Engineer",
+    "avatar": "JD",
+    "phone": "+1 (555) 123-4567",
+    "bio": "Full-stack developer with 8 years of experience"
+  },
+  {
+    "id": "emp-2",
+    "name": "Jane Smith",
+    "email": "jane.smith@company.com",
+    "department": "Product",
+    "title": "Product Manager",
+    "avatar": "JS",
+    "phone": "+1 (555) 234-5678",
+    "bio": "Product manager specializing in SaaS products"
+  },
+  {
+    "id": "emp-3",
+    "name": "Bob Johnson",
+    "email": "bob.johnson@company.com",
+    "department": "Design",
+    "title": "Lead UX Designer",
+    "avatar": "BJ",
+    "phone": "+1 (555) 345-6789",
+    "bio": "UX designer with 10 years of experience in fintech"
+  },
+  {
+    "id": "emp-4",
+    "name": "Alice Williams",
+    "email": "alice.williams@company.com",
+    "department": "Engineering",
+    "title": "Engineering Manager",
+    "avatar": "AW",
+    "phone": "+1 (555) 456-7890",
+    "bio": "Engineering manager leading a team of 12 developers"
+  },
+  {
+    "id": "emp-5",
+    "name": "Charlie Brown",
+    "email": "charlie.brown@company.com",
+    "department": "Sales",
+    "title": "Sales Director",
+    "avatar": "CB",
+    "phone": "+1 (555) 567-8901",
+    "bio": "Sales director with 12 years of B2B experience"
+  },
+  {
+    "id": "emp-6",
+    "name": "Diana Ross",
+    "email": "diana.ross@company.com",
+    "department": "Marketing",
+    "title": "Marketing Manager",
+    "avatar": "DR",
+    "phone": "+1 (555) 678-9012",
+    "bio": "Marketing manager specializing in digital campaigns"
+  },
+  {
+    "id": "emp-7",
+    "name": "Edward Chen",
+    "email": "edward.chen@company.com",
+    "department": "Engineering",
+    "title": "DevOps Engineer",
+    "avatar": "EC",
+    "phone": "+1 (555) 789-0123",
+    "bio": "DevOps engineer with expertise in cloud infrastructure"
+  },
+  {
+    "id": "emp-8",
+    "name": "Fiona Garcia",
+    "email": "fiona.garcia@company.com",
+    "department": "Design",
+    "title": "UI/UX Designer",
+    "avatar": "FG",
+    "phone": "+1 (555) 890-1234",
+    "bio": "UI/UX designer passionate about accessibility"
+  },
+  {
+    "id": "emp-9",
+    "name": "George Harrison",
+    "email": "george.harrison@company.com",
+    "department": "Engineering",
+    "title": "Frontend Developer",
+    "avatar": "GH",
+    "phone": "+1 (555) 901-2345",
+    "bio": "Frontend developer with React and TypeScript expertise"
+  },
+  {
+    "id": "emp-10",
+    "name": "Helen Parker",
+    "email": "helen.parker@company.com",
+    "department": "HR",
+    "title": "HR Business Partner",
+    "avatar": "HP",
+    "phone": "+1 (555) 012-3456",
+    "bio": "HR professional focused on employee development"
+  },
+  {
+    "id": "emp-11",
+    "name": "Ivan Petrov",
+    "email": "ivan.petrov@company.com",
+    "department": "Engineering",
+    "title": "Backend Developer",
+    "avatar": "IP",
+    "phone": "+1 (555) 123-4567",
+    "bio": "Backend developer with expertise in microservices"
+  },
+  {
+    "id": "emp-12",
+    "name": "Julie Andrews",
+    "email": "julie.andrews@company.com",
+    "department": "Product",
+    "title": "Product Analyst",
+    "avatar": "JA",
+    "phone": "+1 (555) 234-5678",
+    "bio": "Product analyst focused on user behavior and metrics"
+  }
+]

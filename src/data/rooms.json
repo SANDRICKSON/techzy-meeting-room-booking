@@ -1,0 +1,98 @@
+[
+    {
+        "id": "room-1",
+        "name": "Executive Board Room",
+        "floor": 1,
+        "building": "HQ",
+        "capacity": 20,
+        "equipment": ["4K projector", "video-conferencing", "smart-board", "whiteboard", "sound-system"],
+        "amenities": ["coffee", "water", "notepads", "pens", "mints"],
+        "isActive": true,
+        "image": "https://via.placeholder.com/300x200/1976d2/FFFFFF?text=Board+Room",
+        "description": "Large boardroom with premium equipment for executive meetings"
+    },
+    {
+        "id": "room-2",
+        "name": "Team A Meeting Room",
+        "floor": 2,
+        "building": "HQ",
+        "capacity": 8,
+        "equipment": ["projector", "whiteboard"],
+        "amenities": ["water", "whiteboard markers"],
+        "isActive": true,
+        "image": "https://via.placeholder.com/300x200/2e7d32/FFFFFF?text=Team+A",
+        "description": "Cozy meeting room for team standups and small group discussions"
+    },
+    {
+        "id": "room-3",
+        "name": "Innovation Lab",
+        "floor": 3,
+        "building": "HQ",
+        "capacity": 15,
+        "equipment": ["smart-board", "video-conferencing", "3D-printer", "VR-headset"],
+        "amenities": ["coffee", "snacks", "energy-drinks", "prototyping-tools"],
+        "isActive": true,
+        "image": "https://via.placeholder.com/300x200/ed6c02/FFFFFF?text=Innovation+Lab",
+        "description": "Creative space with latest technology for brainstorming and prototyping"
+    },
+    {
+        "id": "room-4",
+        "name": "Quiet Focus Room",
+        "floor": 1,
+        "building": "Satellite",
+        "capacity": 4,
+        "equipment": ["whiteboard", "monitor"],
+        "amenities": ["noise-cancelling-headphones", "charging-stations"],
+        "isActive": true,
+        "image": "https://via.placeholder.com/300x200/9c27b0/FFFFFF?text=Quiet+Room",
+        "description": "Soundproof room for focused work and small group discussions"
+    },
+    {
+        "id": "room-5",
+        "name": "Training Center",
+        "floor": 2,
+        "building": "Satellite",
+        "capacity": 30,
+        "equipment": ["projector", "sound-system", "video-conferencing", "microphones", "stage-lighting"],
+        "amenities": ["coffee", "water", "snacks", "notepads", "pens"],
+        "isActive": true,
+        "image": "https://via.placeholder.com/300x200/d32f2f/FFFFFF?text=Training+Center",
+        "description": "Large training facility with professional AV equipment for workshops"
+    },
+    {
+        "id": "room-6",
+        "name": "Design Studio",
+        "floor": 3,
+        "building": "Satellite",
+        "capacity": 12,
+        "equipment": ["whiteboard", "smart-board", "video-conferencing", "drawing-tablets"],
+        "amenities": ["coffee", "creative-supplies", "sketch-pads", "markers"],
+        "isActive": true,
+        "image": "https://via.placeholder.com/300x200/00897b/FFFFFF?text=Design+Studio",
+        "description": "Creative workspace with design tools and collaborative environment"
+    },
+    {
+        "id": "room-7",
+        "name": "Client Meeting Suite",
+        "floor": 5,
+        "building": "HQ",
+        "capacity": 10,
+        "equipment": ["4K TV", "video-conferencing", "wireless-presentation"],
+        "amenities": ["coffee", "premium-water", "notepads", "pens", "refreshments"],
+        "isActive": true,
+        "image": "https://via.placeholder.com/300x200/455a64/FFFFFF?text=Client+Suite",
+        "description": "Professional meeting suite designed for client presentations"
+    },
+    {
+        "id": "room-8",
+        "name": "Wellness Room",
+        "floor": 2,
+        "building": "Satellite",
+        "capacity": 6,
+        "equipment": ["meditation-cushions", "essential-oil-diffuser"],
+        "amenities": ["yoga-mats", "relaxation-music", "tea", "herbal-tea"],
+        "isActive": true,
+        "image": "https://via.placeholder.com/300x200/4caf50/FFFFFF?text=Wellness+Room",
+        "description": "Calm space for meditation, relaxation, and mental wellness breaks"
+    }
+]
