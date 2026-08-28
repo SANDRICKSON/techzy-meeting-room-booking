@@ -1,4 +1,4 @@
-// src/pages/RoomsPage.tsx
+
 import React, { useEffect } from 'react';
 import { Container, Box, Typography } from '@mui/material';
 import RoomsList from '../components/rooms/RoomsList';

@@ -1,4 +1,3 @@
-// WeekView.tsx (გაუმჯობესებული და შესწორებული ვერსია)
 import React, { useMemo } from 'react';
 import {
     Box,
@@ -20,7 +19,7 @@ interface WeekViewProps {
 
 const HOURS = Array.from({ length: 13 }, (_, i) => i + 8);
 const MINUTES_PER_HOUR = 60;
-const TOTAL_HEIGHT = 720; // 12 hours * 60px
+const TOTAL_HEIGHT = 720;
 
 interface BookingPosition {
     top: number;
@@ -33,7 +32,6 @@ interface BookingPosition {
     totalOverlaps: number;
 }
 
-// Extended Booking type with overlap info
 interface BookingWithOverlap extends Booking {
     _overlapInfo?: {
         totalOverlaps: number;
@@ -86,7 +84,6 @@ const WeekView: React.FC<WeekViewProps> = ({
             const lastEnd = new Date(lastBooking.endTime);
             const currentStart = new Date(booking.startTime);
 
-            // Check if bookings overlap (current starts before last ends)
             if (currentStart < lastEnd) {
                 currentGroup.push(booking);
             } else {
@@ -99,7 +96,6 @@ const WeekView: React.FC<WeekViewProps> = ({
             }
         });
 
-        // Process overlaps in each group
         const processedBookings: BookingWithOverlap[] = [];
         overlapGroups.forEach(group => {
             if (group.length === 1) {
@@ -108,7 +104,7 @@ const WeekView: React.FC<WeekViewProps> = ({
             }
 
             group.forEach((booking, index) => {
-                // Add overlap metadata to booking
+
                 const processed: BookingWithOverlap = {
                     ...booking,
                     _overlapInfo: {
@@ -173,7 +169,6 @@ const WeekView: React.FC<WeekViewProps> = ({
         };
     };
 
-    // Process bookings for each day
     const processedDays = useMemo(() => {
         return days.map(day => {
             const dayBookings = getBookingsForDay(day);
@@ -184,7 +179,6 @@ const WeekView: React.FC<WeekViewProps> = ({
         });
     }, [days, getBookingsForDay]);
 
-    // Get current time position for today indicator
     const getCurrentTimePosition = (): number => {
         const now = new Date();
         const minutes = getHours(now) * MINUTES_PER_HOUR + getMinutes(now);
@@ -194,7 +188,7 @@ const WeekView: React.FC<WeekViewProps> = ({
     return (
         <Paper sx={{ p: 2, overflowX: 'auto' }}>
             <Grid container>
-                {/* Time column */}
+                {}
                 <Grid item xs={1} sx={{ minWidth: 60 }}>
                     <Box sx={{ height: 60, borderBottom: 1, borderColor: 'divider' }} />
                     {HOURS.map((hour) => (
@@ -216,10 +210,10 @@ const WeekView: React.FC<WeekViewProps> = ({
                     ))}
                 </Grid>
 
-                {/* Days columns */}
+                {}
                 {processedDays.map(({ date, bookings }) => (
                     <Grid item xs key={date.toISOString()} sx={{ minWidth: 120 }}>
-                        {/* Day header */}
+                        {}
                         <Box
                             sx={{
                                 height: 60,
@@ -243,9 +237,9 @@ const WeekView: React.FC<WeekViewProps> = ({
                             )}
                         </Box>
 
-                        {/* Day content */}
+                        {}
                         <Box sx={{ position: 'relative', height: TOTAL_HEIGHT }}>
-                            {/* Hour lines */}
+                            {}
                             {HOURS.map((hour, index) => (
                                 <Box
                                     key={`${date}-${hour}`}
@@ -260,7 +254,7 @@ const WeekView: React.FC<WeekViewProps> = ({
                                         },
                                     }}
                                 >
-                                    {/* Half-hour markers */}
+                                    {}
                                     <Box
                                         sx={{
                                             position: 'absolute',
@@ -275,7 +269,7 @@ const WeekView: React.FC<WeekViewProps> = ({
                                 </Box>
                             ))}
 
-                            {/* Current time indicator */}
+                            {}
                             {isToday(date) && (
                                 <Box
                                     sx={{
@@ -390,7 +384,7 @@ const WeekView: React.FC<WeekViewProps> = ({
                                 );
                             })}
 
-                            {/* Empty state */}
+                            {}
                             {bookings.length === 0 && (
                                 <Box
                                     sx={{

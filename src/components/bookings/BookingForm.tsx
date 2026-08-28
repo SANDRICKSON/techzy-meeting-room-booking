@@ -1,5 +1,4 @@
-// BookingForm.tsx
-import React, { useState, useEffect, useCallback } from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {
     Dialog,
     DialogTitle,
@@ -23,12 +22,12 @@ import {
     StepLabel,
     Paper,
 } from '@mui/material';
-import { DateTimePicker } from '@mui/x-date-pickers';
-import { useRoomStore } from '../../stores/roomStore';
-import { useBookingStore } from '../../stores/bookingStore';
-import { useEmployeeStore } from '../../stores/employeeStore';
-import { Booking, BookingStatus } from '../../domain/entities/Booking';
-import { debounce } from 'lodash';
+import {DateTimePicker} from '@mui/x-date-pickers';
+import {useRoomStore} from '../../stores/roomStore';
+import {useBookingStore} from '../../stores/bookingStore';
+import {useEmployeeStore} from '../../stores/employeeStore';
+import {Booking, BookingStatus} from '../../domain/entities/Booking';
+import {debounce} from 'lodash';
 
 interface BookingFormProps {
     open: boolean;
@@ -52,9 +51,9 @@ const BookingForm: React.FC<BookingFormProps> = ({
                                                      editBooking,
                                                      initialRoomId,
                                                  }) => {
-    const { rooms, fetchRooms } = useRoomStore();
-    const { employees, fetchEmployees } = useEmployeeStore();
-    const { createBooking, updateBooking, getBookingsForRoom } = useBookingStore();
+    const {rooms, fetchRooms} = useRoomStore();
+    const {employees, fetchEmployees} = useEmployeeStore();
+    const {createBooking, updateBooking, getBookingsForRoom} = useBookingStore();
 
     const [activeStep, setActiveStep] = useState(0);
     const [formData, setFormData] = useState({
@@ -78,7 +77,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
     const [isCheckingAvailability, setIsCheckingAvailability] = useState(false);
     const [touched, setTouched] = useState<Record<string, boolean>>({});
 
-    // Load initial data
+
     useEffect(() => {
         if (open) {
             fetchRooms();
@@ -86,7 +85,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
         }
     }, [open, fetchRooms, fetchEmployees]);
 
-    // Reset form when closed
+
     useEffect(() => {
         if (!open) {
             setFormData({
@@ -108,7 +107,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
         }
     }, [open, initialRoomId]);
 
-    // Load edit data
+
     useEffect(() => {
         if (editBooking) {
             setFormData({
@@ -124,7 +123,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
         }
     }, [editBooking]);
 
-    // Find alternative time slots
+
     const findAlternativeSlots = (
         desiredStart: Date,
         desiredEnd: Date,
@@ -134,9 +133,9 @@ const BookingForm: React.FC<BookingFormProps> = ({
         const duration = (desiredEnd.getTime() - desiredStart.getTime()) / (1000 * 60);
         const now = new Date();
 
-        // Check same day, different times
+
         const baseDate = new Date(desiredStart);
-        baseDate.setHours(8, 0, 0, 0); // Start from 8 AM
+        baseDate.setHours(8, 0, 0, 0);
 
         for (let hour = 8; hour <= 18; hour++) {
             const slotStart = new Date(baseDate);
@@ -161,7 +160,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
             });
         }
 
-        // Check next days
+
         for (let day = 1; day <= 3; day++) {
             const date = new Date(desiredStart);
             date.setDate(date.getDate() + day);
@@ -193,7 +192,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
         });
     };
 
-    // Enhanced availability check with debouncing
+
     const checkAvailability = useCallback(
         debounce(async (roomId: string, start: Date, end: Date) => {
             if (!roomId || !start || !end || start >= end) {
@@ -211,7 +210,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                     return end > bStart && start < bEnd;
                 });
 
-                // Find alternative time slots
+
                 const suggestedSlots = findAlternativeSlots(start, end, roomBookings);
 
                 setAvailabilityCheck({
@@ -228,19 +227,19 @@ const BookingForm: React.FC<BookingFormProps> = ({
         [getBookingsForRoom, editBooking]
     );
 
-    // Trigger availability check
+
     useEffect(() => {
         if (formData.roomId && formData.startTime && formData.endTime) {
             checkAvailability(formData.roomId, formData.startTime, formData.endTime);
         }
     }, [formData.roomId, formData.startTime, formData.endTime, checkAvailability]);
 
-    // Enhanced validation
+
     const validate = (): boolean => {
         const newErrors: Record<string, string> = {};
         const now = new Date();
 
-        // Step 1: Basic info
+
         if (activeStep === 0) {
             if (!formData.roomId) newErrors.roomId = 'Room is required';
             if (!formData.employeeId) newErrors.employeeId = 'Organizer is required';
@@ -248,7 +247,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
             if (formData.title.length > 100) newErrors.title = 'Title must be less than 100 characters';
         }
 
-        // Step 2: Time & attendees
+
         if (activeStep === 1) {
             if (formData.startTime >= formData.endTime) {
                 newErrors.endTime = 'End time must be after start time';
@@ -270,7 +269,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 newErrors.attendees = 'Maximum 20 attendees allowed';
             }
 
-            // Availability check
+
             if (availabilityCheck && !availabilityCheck.available) {
                 newErrors.availability = 'Room is not available for the selected time slot';
             }
@@ -322,8 +321,8 @@ const BookingForm: React.FC<BookingFormProps> = ({
     };
 
     const handleFieldChange = (field: string, value: any) => {
-        setFormData((prev) => ({ ...prev, [field]: value }));
-        setTouched((prev) => ({ ...prev, [field]: true }));
+        setFormData((prev) => ({...prev, [field]: value}));
+        setTouched((prev) => ({...prev, [field]: true}));
     };
 
     const renderStepContent = (step: number) => {
@@ -340,7 +339,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
     };
 
     const renderBasicInfo = () => (
-        <Grid container spacing={2} sx={{ mt: 1 }}>
+        <Grid container spacing={2} sx={{mt: 1}}>
             <Grid item xs={12}>
                 <TextField
                     fullWidth
@@ -351,7 +350,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                     helperText={touched.title && errors.title}
                     disabled={loading}
                     required
-                    inputProps={{ maxLength: 100 }}
+                    inputProps={{maxLength: 100}}
                 />
             </Grid>
 
@@ -410,7 +409,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
     );
 
     const renderTimeAndAttendees = () => (
-        <Grid container spacing={2} sx={{ mt: 1 }}>
+        <Grid container spacing={2} sx={{mt: 1}}>
             <Grid item xs={12} sm={6}>
                 <DateTimePicker
                     label="Start Time *"
@@ -454,7 +453,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
             {isCheckingAvailability && (
                 <Grid item xs={12}>
                     <Alert severity="info">
-                        <CircularProgress size={16} sx={{ mr: 1 }} />
+                        <CircularProgress size={16} sx={{mr: 1}}/>
                         Checking availability...
                     </Alert>
                 </Grid>
@@ -469,10 +468,11 @@ const BookingForm: React.FC<BookingFormProps> = ({
                     ) : (
                         <Alert severity="error">
                             <Typography variant="body2" fontWeight="bold">
-                                Room is not available. There are {availabilityCheck.conflicts.length} conflicting booking(s).
+                                Room is not available. There are {availabilityCheck.conflicts.length} conflicting
+                                booking(s).
                             </Typography>
                             {availabilityCheck.conflicts.map(conflict => (
-                                <Typography key={conflict.id} variant="caption" display="block" sx={{ mt: 0.5 }}>
+                                <Typography key={conflict.id} variant="caption" display="block" sx={{mt: 0.5}}>
                                     • {conflict.title} ({new Date(conflict.startTime).toLocaleTimeString()} - {new Date(conflict.endTime).toLocaleTimeString()})
                                 </Typography>
                             ))}
@@ -480,11 +480,11 @@ const BookingForm: React.FC<BookingFormProps> = ({
                     )}
 
                     {!availabilityCheck.available && availabilityCheck.suggestedSlots && availabilityCheck.suggestedSlots.length > 0 && (
-                        <Box sx={{ mt: 2 }}>
+                        <Box sx={{mt: 2}}>
                             <Typography variant="subtitle2" gutterBottom>
                                 Suggested alternative slots:
                             </Typography>
-                            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                            <Box sx={{display: 'flex', flexDirection: 'column', gap: 1}}>
                                 {availabilityCheck.suggestedSlots.map((slot, index) => (
                                     <Paper
                                         key={index}
@@ -512,7 +512,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                                                     label="Click to select"
                                                     size="small"
                                                     color="primary"
-                                                    sx={{ ml: 1 }}
+                                                    sx={{ml: 1}}
                                                 />
                                             )}
                                         </Typography>
@@ -541,10 +541,10 @@ const BookingForm: React.FC<BookingFormProps> = ({
                         }
                         label="Attendees"
                         renderValue={(selected) => (
-                            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                            <Box sx={{display: 'flex', flexWrap: 'wrap', gap: 0.5}}>
                                 {selected.map((id) => {
                                     const emp = employees.find((e) => e.id === id);
-                                    return <Chip key={id} label={emp?.name || id} size="small" />;
+                                    return <Chip key={id} label={emp?.name || id} size="small"/>;
                                 })}
                             </Box>
                         )}
@@ -574,8 +574,8 @@ const BookingForm: React.FC<BookingFormProps> = ({
     );
 
     const renderReview = () => (
-        <Box sx={{ mt: 2 }}>
-            <Paper sx={{ p: 2, mb: 2 }}>
+        <Box sx={{mt: 2}}>
+            <Paper sx={{p: 2, mb: 2}}>
                 <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
                     Booking Summary
                 </Typography>
@@ -614,10 +614,10 @@ const BookingForm: React.FC<BookingFormProps> = ({
                         <Typography variant="caption" color="text.secondary">
                             Attendees ({formData.attendees.length})
                         </Typography>
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, mt: 0.5 }}>
+                        <Box sx={{display: 'flex', flexWrap: 'wrap', gap: 0.5, mt: 0.5}}>
                             {formData.attendees.map(id => {
                                 const emp = employees.find(e => e.id === id);
-                                return <Chip key={id} label={emp?.name || id} size="small" />;
+                                return <Chip key={id} label={emp?.name || id} size="small"/>;
                             })}
                         </Box>
                     </Grid>
@@ -653,8 +653,8 @@ const BookingForm: React.FC<BookingFormProps> = ({
             <Dialog open={open} onClose={onClose} maxWidth="md" fullWidth>
                 <DialogContent>
                     <Box display="flex" justifyContent="center" alignItems="center" minHeight={200}>
-                        <CircularProgress />
-                        <Typography sx={{ ml: 2 }}>Loading...</Typography>
+                        <CircularProgress/>
+                        <Typography sx={{ml: 2}}>Loading...</Typography>
                     </Box>
                 </DialogContent>
             </Dialog>
@@ -671,12 +671,12 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
             <DialogContent>
                 {submitError && (
-                    <Alert severity="error" sx={{ mb: 2, mt: 1 }}>
+                    <Alert severity="error" sx={{mb: 2, mt: 1}}>
                         {submitError}
                     </Alert>
                 )}
 
-                <Stepper activeStep={activeStep} sx={{ mb: 3 }}>
+                <Stepper activeStep={activeStep} sx={{mb: 3}}>
                     {steps.map((label) => (
                         <Step key={label}>
                             <StepLabel>{label}</StepLabel>

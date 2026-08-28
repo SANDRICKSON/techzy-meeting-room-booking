@@ -19,7 +19,7 @@ import {
     Dashboard,
     MeetingRoom,
     CalendarToday,
-    EventNote, // ✅ ჩაანაცვლეთ Bookings
+    EventNote,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -29,7 +29,7 @@ const menuItems = [
     { text: 'Dashboard', icon: <Dashboard />, path: '/' },
     { text: 'Rooms', icon: <MeetingRoom />, path: '/rooms' },
     { text: 'Calendar', icon: <CalendarToday />, path: '/calendar' },
-    { text: 'Bookings', icon: <EventNote />, path: '/bookings' }, // ✅ EventNote
+    { text: 'Bookings', icon: <EventNote />, path: '/bookings' },
 ];
 
 const Navigation: React.FC = () => {

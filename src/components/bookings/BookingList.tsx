@@ -147,7 +147,7 @@ const BookingsList: React.FC = () => {
                             filteredBookings.map((booking) => {
                                 const room = getRoom(booking.roomId);
                                 const organizer = getEmployee(booking.employeeId);
-                                // ✅ FIXED: "upcoming" logic
+
                                 const isUpcoming = new Date(booking.startTime) > new Date();
                                 const canEdit = isUpcoming && booking.status !== BookingStatus.CANCELLED;
 

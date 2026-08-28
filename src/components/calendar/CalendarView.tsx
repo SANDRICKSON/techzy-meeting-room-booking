@@ -24,7 +24,7 @@ const CalendarView: React.FC<CalendarViewProps> = ({ onBookingClick }) => {
         );
     }
 
-    // შეამოწმეთ არის თუ არა დაჯავშნები
+
     const hasBookings = days.some(day => getBookingsForDay(day).length > 0);
 
     return (

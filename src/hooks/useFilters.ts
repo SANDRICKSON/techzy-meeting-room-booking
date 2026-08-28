@@ -22,7 +22,7 @@ export function useFilters<T extends Record<string, any>>(
         const updated = { ...localFilters, ...newFilters };
         setLocalFilters(updated);
 
-        // Update URL
+
         const params = new URLSearchParams(searchParams);
         params.set(key, JSON.stringify(updated));
         setSearchParams(params);

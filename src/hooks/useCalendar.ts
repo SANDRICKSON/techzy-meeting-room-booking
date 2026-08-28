@@ -50,7 +50,7 @@ export function useCalendar() {
         return bookings
             .filter(b => {
                 const bDate = new Date(b.startTime);
-                // მხოლოდ დაადასტურებული და არა გაუქმებული დაჯავშნები
+
                 return isWithinInterval(bDate, { start, end }) &&
                     b.status !== BookingStatus.CANCELLED &&
                     b.status === BookingStatus.CONFIRMED;
